@@ -1,0 +1,63 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+pre {
+    background-color: ghostwhite;
+    border: 1px solid silver;
+    padding: 10px 20px;
+    margin: 20px; 
+}
+
+.json-key {
+    color: brown;
+}
+
+.json-value {
+    color: navy;
+}
+
+.json-string {
+    color: olive;
+}
+
+#preResponse{
+    visibility: hidden;
+}
+
+h1{
+    padding-left: 2%;
+}
+
+header {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-logo img {
+    height: 40px;
+}
+
+.header-nav ul {
+    list-style: none;
+    margin: 0;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: inherit;
+}
