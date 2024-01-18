@@ -16,17 +16,12 @@
 </body>    
 <script>
     var response = '<%- JSON.stringify(paymentResponse) %>';
+    console.log(response);
     var responseObject = JSON.parse(response);
-    if(responseObject.result.status != 'approved'){
-        let messagesString = '';
-        const messagesArray = responseObject.result.codes;
-        messagesArray.forEach(codes => {
-            messagesString += codes.message + ' ';
-        });
-        
+    if(responseObject.errorMessage != undefined){
         Swal.fire({
             title: 'Error! Please Check',
-            text: 'Error: ' + messagesString,
+            text: 'An Error Occured Please Try Again.' ,
             icon: 'error',
             confirmButtonText: 'Okay',
             allowOutsideClick: false,
@@ -37,17 +32,38 @@
             }
         });
     }else{
-        Swal.fire({
-            title: 'Processed Successfully!',
-            text: 'Transaction id: ' + responseObject.id,
-            icon: 'success',
-            allowOutsideClick: false,
-            heightAuto: false                
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location = "/"; // Use "window.location" to redirect
-            }
-        });
+        if(responseObject.result.status != 'approved'){
+            let messagesString = '';
+            const messagesArray = responseObject.result.codes;
+            messagesArray.forEach(codes => {
+                messagesString += codes.message + ' ';
+            });
+            
+            Swal.fire({
+                title: 'Error! Please Check',
+                text: 'Error: ' + messagesString,
+                icon: 'error',
+                confirmButtonText: 'Okay',
+                allowOutsideClick: false,
+                heightAuto: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "/"; // Use "window.location" to redirect
+                }
+            });
+        }else{
+            Swal.fire({
+                title: 'Processed Successfully!',
+                text: 'Transaction id: ' + responseObject.id,
+                icon: 'success',
+                allowOutsideClick: false,
+                heightAuto: false                
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "/"; // Use "window.location" to redirect
+                }
+            });
+        }
     }
 
    

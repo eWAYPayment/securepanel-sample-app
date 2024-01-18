@@ -83,7 +83,7 @@
                             <div class="d-flex justify-content-between mb-4">
                               <p class="mb-2">Total (GST)</p>
                               <% const priceIncludeGST = (shoppingCartObj.price * shoppingCartObj.quantity).toFixed(2); %>
-                              <label for="totalGST" id="totalGST" class="mb-2">$ <%= priceIncludeGST %></label>
+                              <span id="totalGST" class="mb-2">$ <%= priceIncludeGST %></span>
                             </div>
                             <input type="hidden" id="amount" name="amount" value="<%= priceIncludeGST %>" >
                             <input type="hidden" id="oneTimeToken" name="oneTimeToken" value="<%= shoppingCartObj.oneTimeToken %>" >
