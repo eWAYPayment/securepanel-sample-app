@@ -13,9 +13,9 @@ Make sure you have the following prerequisites installed on your machine:
 
 ### Installation and Build
 
-1. Navigate to the `securepanel-sample-app` directory.
+1. Navigate to the `SecurePanel-Sample-App` directory.
    ```shell
-   cd securepanel-sample-app
+   cd SecurePanel-Sample-App
 2. Run the following command to install the required dependencies.
     ```shell
     npm install
