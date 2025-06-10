@@ -39,18 +39,23 @@
                     <img class="menuImg" src="./assets/Tshirt.png" alt="Blue T-shirt" width="300">
                 </div>
                 <form action="/shoppingCart" method="post" id="shoppingForm">
-                    <div class="container">
-                        <h3>Blue T-shirt</h3>
-                        <input type="hidden" name="price" value="1.00">
-                        <p>Price: $1.00</p>
-                        <div class="form-outline, container" style="width: 22rem; padding-bottom: 1vh;">
-                            <label class="form-label">Quantity</label>
-                            <input value="1" min="1" type="number" name="quantity" id="quantity" class="form-control form-icon-trailing"  oninput="this.value = 
-                            !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null"/>
+                    <h3>Blue T-shirt</h3>
+                    <div class="container justify-content-start">
+                        <div class="d-flex justify-content-between align-items-center" style="width: 22rem; padding-bottom: 2vh;">
+                            <label>Price:</label>
+                            <label>$1.00</label>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center" style="width: 22rem; padding-bottom: 1vh;">
+                            <label class="form-label">Quantity:</label>
+                            <input value="1" min="1" max="99999999" type="number" name="quantity" id="quantity" class="form-control form-icon-trailing"  step="1"  oninput="quantityFormat(this);" style="width: 25%;"/>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center" style="width: 22rem; padding-bottom: 2vh;">
+                            <label class="form-label" for="enable-surcharge">Enable Surcharge:</label>
+                            <input class="form-check-input" type="checkbox" name="surchargeEnabled" id="enable-surcharge" checked value="yes">
                         </div>
                         <button type="button" id="btn" class="btn btn-primary btn-lg btn-block" >Buy Now</button>
-                          
                     </div>
+                    <input type="hidden" name="price" value="1.00">
                 </form>
             </div>       
         </div>
@@ -70,5 +75,18 @@
 </body>
 <script>
     var maxPhoneSize = 768;
+
+    function quantityFormat(input) {
+        input.value = input.value.replace(/\./g, '').replace(/\-/g, '');
+        if(input.value<1 || input.value>99999999){
+            input.value = input.value.slice(0, -1);
+        }
+        if(input.value.length==0){
+            $('#btn').prop('disabled', true);
+        }
+        else{
+            $('#btn').prop('disabled', false);
+        }
+    }
 </script>
 </html>

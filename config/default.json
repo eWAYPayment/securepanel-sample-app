@@ -1,6 +1,6 @@
 {
   "port": 8880,
   "singleApiBaseUrl": "https://api.gpaunz.com/",
-  "securePanelUrl": "https://hosted.gpaunz.com/static/securepanel/1.0.0/js/securepanel.min.js",
+  "securePanelUrl": "https://hosted.gpaunz.com/static/securepanel/1.1.0/js/securepanel.min.js",
   "xApiKey": "<Your Single API Key>"
 }
